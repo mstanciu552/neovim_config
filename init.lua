@@ -1,6 +1,6 @@
 local fn = vim.fn
 local execute = vim.api.nvim_command
-local globals = require "globals"
+local globals = require("globals")
 
 vim.g.mapleader = " "
 
@@ -28,6 +28,7 @@ local config = {
 	"config.dapinstall",
 	"config.lspsaga",
 	"config.tabnine",
+	"utils.autocmds",
 }
 
 if globals.lsp_matlab then
@@ -39,11 +40,11 @@ if globals.bufferline then
 end
 
 if globals.which_key then
-  table.insert(config, "config.which-key")
+	table.insert(config, "config.which-key")
 end
 
 if globals.theme ~= false then
-  table.insert(config, "highlights")
+	table.insert(config, "highlights")
 end
 
 for _, config_path in ipairs(config) do

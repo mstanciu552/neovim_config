@@ -14,7 +14,7 @@ M.emmet = function()
 end
 
 M.config = function()
-	vim.cmd [[
+	vim.cmd([[
   syntax on
   filetype plugin indent on
 
@@ -34,7 +34,7 @@ M.config = function()
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=500}
   augroup END
 
-  ]]
+  ]])
 
 	vim.o.signcolumn = "yes"
 	vim.o.clipboard = "unnamed,unnamedplus"
@@ -66,6 +66,7 @@ M.config = function()
 	vim.opt.inccommand = "nosplit"
 	vim.opt.autoindent = true
 	vim.o.wrap = true
+	vim.g.fileformats = "unix,dos"
 
 	vim.o.guifont = "UbuntuMono Nerd Font:h24"
 
