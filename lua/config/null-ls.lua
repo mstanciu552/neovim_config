@@ -1,4 +1,4 @@
-local globals = require "globals"
+local globals = require("globals")
 
 local M = {
 	border = {
@@ -12,9 +12,9 @@ local M = {
 		{ "▏", "FloatBorder" },
 	},
 	sources = {
-		require("null-ls").builtins.formatting.stylua.with {
-			extra_args = { "--config-path", vim.fn.expand "~/.config/stylua/stylua.toml" },
-		},
+		require("null-ls").builtins.formatting.stylua.with({
+			extra_args = { "--config-path", vim.fn.expand("~/.config/stylua/stylua.toml") },
+		}),
 		require("null-ls").builtins.formatting.prettier,
 		require("null-ls").builtins.formatting.phpcsfixer,
 		require("null-ls").builtins.formatting.black,
@@ -24,6 +24,9 @@ local M = {
 		require("null-ls").builtins.formatting.goimports,
 		require("null-ls").builtins.formatting.json_tool,
 		require("null-ls").builtins.formatting.rustfmt,
+		require("null_ls").builtins.formatting.clang_format.with {
+      filetypes = { "java" },
+    },
 		-- require("null-ls").builtins.formatting.latexindent.with {
 		-- 	filetypes = { "tex", "plaintex" },
 		-- },
@@ -39,17 +42,20 @@ local M = {
 function M.on_attach(client)
 	-- Format on save
 	if client.resolved_capabilities.document_formatting and globals.format_on_save then
-		vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = M.border })
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = M.border })
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+		vim.lsp.handlers.signature_help,
+		{ border = M.border }
+	)
 end
 
 function M.config()
-	require("null-ls").setup {
+	require("null-ls").setup({
 		sources = M.sources,
 		debug = true,
 		on_attach = M.on_attach,
-	}
+	})
 end
 return M

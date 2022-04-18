@@ -41,9 +41,13 @@ function M.config()
 		experimental = {
 			ghost_text = true,
 		},
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		},
+		-- documentation = {
+		-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		-- },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
 		mapping = {
 			["<CR>"] = cmp.mapping.confirm {
 				behavior = cmp.ConfirmBehavior.Insert,

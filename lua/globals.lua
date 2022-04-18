@@ -5,7 +5,7 @@ M.virtual_text = true
 M.bufferline = false
 M.which_key = false
 M.format_on_save = true
-M.transparent = true
+M.transparent = false
 M.theme = false
 
 local statusline_options = {
@@ -16,15 +16,17 @@ local statusline_options = {
 M.statusline = statusline_options[1]
 
 local themes = {
-	"tokyonight",
-	"nightfox",
-	"monokai",
-	"kanagawa",
-	"onedark",
+	"tokyonight", -- 1
+	"nightfox", -- 2
+	"monokai", -- 3
+	"kanagawa", -- 4
+	"onedark", -- 5
+	"darkplus", -- 6
+	"doom-one", -- 7
 }
 
 -- M.colorscheme = themes[math.random(1, #themes)]
-M.colorscheme = themes[5]
+M.colorscheme = themes[7]
 
 M.lsp_matlab = true
 
@@ -44,7 +46,7 @@ M.rename_file = function()
 
 	if not err then
 		if code == 13 then
-			vim.api.nvim_err_writeln "Permissions issue"
+			vim.api.nvim_err_writeln("Permissions issue")
 		end
 	end
 	print(ok)
@@ -55,10 +57,14 @@ M.toggle_virtual_text = function()
 	vim.api.nvim_buf_attach(0, false, {
 		on_lines = function()
 			M.virtual_text = not M.virtual_text
-			vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-				underline = true,
-				virtual_text = M.virtual_text,
-			})
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+				vim.lsp.with(
+					vim.lsp.diagnostic.on_publish_diagnostics,
+					{
+						underline = true,
+						virtual_text = M.virtual_text,
+					}
+				)
 		end,
 	})
 end
