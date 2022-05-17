@@ -16,7 +16,7 @@ local config = {
 	"config.scrollbar",
 	"config.hlargs",
 	"config.mini",
-	"config.markdown",
+	-- "config.markdown",
 	"config.nvimtree",
 	"config.null-ls",
 	"config.lua_line",
@@ -24,11 +24,13 @@ local config = {
 	"config.luasnip",
 	"config.telescope",
 	"config.treesitter",
+	"config.typescript",
 	"config.lspinstaller",
-	"config.dapinstall",
+	-- "config.dapinstall",
 	"config.lspsaga",
 	"config.tabnine",
 	"utils.autocmds",
+	"lsp",
 }
 
 if globals.lsp_matlab then

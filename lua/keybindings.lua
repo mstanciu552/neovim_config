@@ -1,5 +1,5 @@
-local utils = require "utils"
-local globals = require "globals"
+local utils = require("utils")
+local globals = require("globals")
 
 local M = {}
 local key = vim.api.nvim_set_keymap
@@ -27,8 +27,8 @@ function M.config()
 	key("v", "<S-Down>", ":'<,'>m +1<CR>gv", { noremap = true })
 
 	-- No idea why it's not working
-	key("i", "jk", utils.t "<esc>l", { noremap = true, silent = false })
-	key("i", "jj", utils.t "<esc>l", { noremap = true, silent = true })
+	key("i", "jk", utils.t("<esc>l"), { noremap = true, silent = false })
+	key("i", "jj", utils.t("<esc>l"), { noremap = true, silent = true })
 
 	-- NvimTree
 	key("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
@@ -56,6 +56,25 @@ function M.config()
 			"n",
 			"<leader>s",
 			":lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({}))<cr>",
+			{ noremap = true, silent = true }
+		)
+	elseif globals.telescope_theme == "ivy" then
+		key(
+			"n",
+			"<leader>f",
+			":lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
+			{ noremap = true, silent = true }
+		)
+		key(
+			"n",
+			"<leader>g",
+			":lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy({}))<cr>",
+			{ noremap = true, silent = true }
+		)
+		key(
+			"n",
+			"<leader>s",
+			":lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({}))<cr>",
 			{ noremap = true, silent = true }
 		)
 	end

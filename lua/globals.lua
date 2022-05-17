@@ -1,6 +1,5 @@
 local M = {}
 
-M.ekaput = false
 M.virtual_text = true
 M.bufferline = false
 M.which_key = false
@@ -23,20 +22,21 @@ local themes = {
 	"onedark", -- 5
 	"darkplus", -- 6
 	"doom-one", -- 7
+	"nvcode", -- 8
 }
 
 -- M.colorscheme = themes[math.random(1, #themes)]
-M.colorscheme = themes[7]
+M.colorscheme = themes[5]
 
-M.lsp_matlab = true
+M.lsp_matlab = false
 
 local telescope_themes = {
-	"dropdown",
-	"normal",
-	"ivy",
+	"dropdown", -- 1
+	"normal", -- 2
+	"ivy", -- 3
 }
 
-M.telescope_theme = telescope_themes[2]
+M.telescope_theme = telescope_themes[3]
 
 M.rename_file = function()
 	local fname = vim.api.nvim_buf_get_name(0)

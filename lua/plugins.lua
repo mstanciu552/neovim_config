@@ -52,11 +52,13 @@ function M.config()
 		})
 		use("p00f/nvim-ts-rainbow")
 		use("nvim-treesitter/playground")
+		use("windwp/nvim-ts-autotag")
 
 		use({ "neovim/nvim-lspconfig" })
 		use("williamboman/nvim-lsp-installer")
 		use({ "tami5/lspsaga.nvim" })
 		-- use { "rinx/lspsaga.nvim" }
+		use("jose-elias-alvarez/typescript.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -73,10 +75,8 @@ function M.config()
 
 		use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
-		use({ "ap/vim-css-color" })
+		use("ap/vim-css-color")
 		use("windwp/nvim-autopairs")
-
-		use({ "mstanciu552/which-key.nvim" })
 
 		use({
 			"NTBBloodbath/galaxyline.nvim",
@@ -129,24 +129,25 @@ function M.config()
 		})
 
 		use("ellisonleao/glow.nvim")
-		use({
-			"kaputi/e-kaput.nvim",
-			disable = not globals.ekaput,
-		})
-
 		use({ "mstanciu552/lsp_matlab", disable = not globals.lsp_matlab })
 
 		use("mfussenegger/nvim-dap")
 		use("Pocco81/DAPInstall.nvim")
 
 		use("tpope/vim-fugitive")
-		-- use "lukas-reineke/indent-blankline.nvim"
 		use("lervag/vimtex")
 		use("petertriho/nvim-scrollbar")
-		use({ "sidebar-nvim/sidebar.nvim", disable = true })
 		use({ "echasnovski/mini.nvim" })
 		use("m-demare/hlargs.nvim")
-		use("jakewvincent/mkdnflow.nvim")
+
+		use("rcarriga/nvim-notify")
+		use("lambdalisue/suda.vim")
+		use({
+			"zbirenbaum/neodim",
+			config = function()
+				require("neodim").setup()
+			end,
+		})
 
 		if PACKER_BOOTSTRAP then
 			require("packer").sync()
