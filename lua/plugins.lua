@@ -20,14 +20,6 @@ function M.config()
 		vim.cmd([[packadd packer.nvim]])
 	end
 
-	-- Autocommand that reloads neovim whenever you save the plugins.lua file
-	vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 	require("config.packer_opts").config()
 	return require("packer").startup(function(use)
 		use("wbthomason/packer.nvim")
@@ -59,6 +51,7 @@ function M.config()
 		use({ "tami5/lspsaga.nvim" })
 		-- use { "rinx/lspsaga.nvim" }
 		use("jose-elias-alvarez/typescript.nvim")
+		use("lukas-reineke/lsp-format.nvim")
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -97,6 +90,10 @@ function M.config()
 		use("mattn/emmet-vim")
 		use("christianchiarulli/nvcode-color-schemes.vim")
 		use("NTBBloodbath/doom-one.nvim")
+		use({
+			"catppuccin/nvim",
+			as = "catppuccin",
+		})
 		use("jose-elias-alvarez/null-ls.nvim")
 		use("L3MON4D3/LuaSnip")
 		use("saadparwaiz1/cmp_luasnip")

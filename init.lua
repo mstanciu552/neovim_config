@@ -30,6 +30,7 @@ local config = {
 	"config.lspsaga",
 	"config.tabnine",
 	"utils.autocmds",
+
 	"lsp",
 }
 
@@ -47,6 +48,10 @@ end
 
 if globals.theme ~= false then
 	table.insert(config, "highlights")
+end
+
+if globals.colorscheme == "catppuccin" then
+	table.insert(config, "config.catppuccin")
 end
 
 for _, config_path in ipairs(config) do

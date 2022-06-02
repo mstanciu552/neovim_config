@@ -6,6 +6,10 @@ local key = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = false }
 
 function M.config()
+	key("n", "<C>s", ":w", { noremap = true, silent = true })
+	key("i", "<C>s", ":w", { noremap = true, silent = true })
+	key("v", "<C>s", ":w", { noremap = true, silent = true })
+
 	key("n", ";", ":", { noremap = true, silent = false })
 	key("v", ";", ":", { silent = false })
 	key("n", "Y", "y$", { noremap = true, silent = true })
@@ -34,11 +38,15 @@ function M.config()
 	key("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 	key("n", "<leader>o", ":NvimTreeFind<CR>", { noremap = true, silent = true })
 
+	-- Formatting
+	key("n", "<leader>cf", ":lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = true })
+
 	-- Telescope
 	if globals.telescope_theme == "normal" then
 		key("n", "<leader>f", ":lua require('telescope.builtin').find_files()<cr>", { noremap = true, silent = true })
 		key("n", "<leader>g", ":lua require('telescope.builtin').live_grep()<cr>", { noremap = true, silent = true })
 		key("n", "<leader>s", ":lua require('telescope.builtin').help_tags()<cr>", { noremap = true, silent = true })
+		key("n", "<leader>b", ":lua require('telescope.builtin').buffers()<cr>", { noremap = true, silent = true })
 	elseif globals.telescope_theme == "dropdown" then
 		key(
 			"n",
@@ -58,6 +66,12 @@ function M.config()
 			":lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown({}))<cr>",
 			{ noremap = true, silent = true }
 		)
+		key(
+			"n",
+			"<leader>b",
+			":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({}))<cr>",
+			{ noremap = true, silent = true }
+		)
 	elseif globals.telescope_theme == "ivy" then
 		key(
 			"n",
@@ -75,6 +89,12 @@ function M.config()
 			"n",
 			"<leader>s",
 			":lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({}))<cr>",
+			{ noremap = true, silent = true }
+		)
+		key(
+			"n",
+			"<leader>b",
+			":lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({}))<cr>",
 			{ noremap = true, silent = true }
 		)
 	end

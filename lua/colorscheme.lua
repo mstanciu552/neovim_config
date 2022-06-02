@@ -23,7 +23,9 @@ function M.config()
 	vim.cmd("hi SpellBad guifg=none guibg=none cterm=none ctermfg=none ctermbg=none")
 	vim.cmd("hi IncSearch guibg='#5e81ac' guifg='#abb2bf'")
 
-	pcall(require, globals.colorscheme)
+	if globals.colorscheme ~= "catppuccin" then
+		pcall(require, globals.colorscheme)
+	end
 	vim.cmd("colorscheme " .. globals.colorscheme)
 
 	if globals.transparent then
