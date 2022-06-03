@@ -26,7 +26,11 @@ function M.config()
 	if globals.colorscheme ~= "catppuccin" then
 		pcall(require, globals.colorscheme)
 	end
+  if globals.colorscheme == "github" then 
+	vim.cmd("colorscheme " .. globals.colorscheme .. "_dark")
+  else
 	vim.cmd("colorscheme " .. globals.colorscheme)
+end
 
 	if globals.transparent then
 		vim.cmd("hi Normal guibg=None ctermbg=None")

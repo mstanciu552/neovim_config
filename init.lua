@@ -54,6 +54,10 @@ if globals.colorscheme == "catppuccin" then
 	table.insert(config, "config.catppuccin")
 end
 
+if globals.colorscheme == "github" then
+	table.insert(config, "config.github-theme")
+end
+
 for _, config_path in ipairs(config) do
 	local ok, cf = pcall(require, config_path)
 	if ok then

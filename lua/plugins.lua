@@ -94,6 +94,7 @@ function M.config()
 			"catppuccin/nvim",
 			as = "catppuccin",
 		})
+		use("projekt0n/github-nvim-theme")
 		use("jose-elias-alvarez/null-ls.nvim")
 		use("L3MON4D3/LuaSnip")
 		use("saadparwaiz1/cmp_luasnip")

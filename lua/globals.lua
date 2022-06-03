@@ -1,7 +1,7 @@
 local M = {}
 
-M.virtual_text = true
-M.bufferline = false
+M.virtual_text = false
+M.bufferline = true
 M.which_key = false
 M.format_on_save = false
 M.transparent = false
@@ -24,6 +24,7 @@ local themes = {
 	"doom-one", -- 7
 	"nvcode", -- 8
 	"catppuccin", -- 9
+	"github", -- 10
 }
 
 -- M.colorscheme = themes[math.random(1, #themes)]
