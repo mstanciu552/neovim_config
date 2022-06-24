@@ -1,11 +1,13 @@
 local M = {}
 
 M.virtual_text = false
-M.bufferline = true
+M.bufferline = false
 M.which_key = false
 M.format_on_save = false
 M.transparent = false
 M.theme = false
+M.underline = true
+M.hover_diagnostics = false
 
 local statusline_options = {
 	"eviline",
@@ -25,10 +27,12 @@ local themes = {
 	"nvcode", -- 8
 	"catppuccin", -- 9
 	"github", -- 10
+  "gruvbox" -- 11
 }
 
 -- M.colorscheme = themes[math.random(1, #themes)]
-M.colorscheme = themes[2]
+-- M.colorscheme = themes[2]
+M.colorscheme = themes[1]
 
 M.lsp_matlab = false
 
@@ -63,7 +67,7 @@ M.toggle_virtual_text = function()
 				vim.lsp.with(
 					vim.lsp.diagnostic.on_publish_diagnostics,
 					{
-						underline = true,
+						underline = M.underline,
 						virtual_text = M.virtual_text,
 					}
 				)

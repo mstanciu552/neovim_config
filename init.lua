@@ -27,6 +27,7 @@ local config = {
 	"config.typescript",
 	"config.lspinstaller",
 	-- "config.dapinstall",
+	"config.rust-tools",
 	"config.lspsaga",
 	"config.tabnine",
 	"utils.autocmds",

@@ -57,7 +57,7 @@ M.config = function()
 	vim.opt.swapfile = false
 	vim.opt.backup = false
 	vim.opt.number = true
-	vim.opt.relativenumber = true
+	vim.opt.relativenumber = false
 	vim.opt.mouse = "a"
 	vim.opt.tabstop = 2
 	vim.opt.softtabstop = 2
@@ -67,6 +67,7 @@ M.config = function()
 	vim.opt.autoindent = true
 	vim.o.wrap = true
 	vim.g.fileformats = "unix,dos"
+  vim.opt.list = true
 
 	vim.o.guifont = "UbuntuMono Nerd Font:h24"
 

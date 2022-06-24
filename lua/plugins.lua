@@ -45,6 +45,14 @@ function M.config()
 		use("p00f/nvim-ts-rainbow")
 		use("nvim-treesitter/playground")
 		use("windwp/nvim-ts-autotag")
+		use({
+			"nvim-orgmode/orgmode",
+			ft = { "org" },
+			config = function()
+				require("orgmode").setup_ts_grammar()
+				require("orgmode").setup({})
+			end,
+		})
 
 		use({ "neovim/nvim-lspconfig" })
 		use("williamboman/nvim-lsp-installer")
@@ -52,6 +60,11 @@ function M.config()
 		-- use { "rinx/lspsaga.nvim" }
 		use("jose-elias-alvarez/typescript.nvim")
 		use("lukas-reineke/lsp-format.nvim")
+		use("simrat39/rust-tools.nvim")
+		use({
+			"weilbith/nvim-code-action-menu",
+			cmd = "CodeActionMenu",
+		})
 
 		use({
 			"hrsh7th/nvim-cmp",
@@ -139,6 +152,7 @@ function M.config()
 		use("m-demare/hlargs.nvim")
 
 		use("rcarriga/nvim-notify")
+		use("Djancyp/cheat-sheet")
 		use("lambdalisue/suda.vim")
 		use({
 			"zbirenbaum/neodim",

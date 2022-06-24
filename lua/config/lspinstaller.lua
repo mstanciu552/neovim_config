@@ -1,4 +1,5 @@
 local M = {}
+local globals = require("globals")
 
 M.config = function()
 	local lsp_installer = require("nvim-lsp-installer")
@@ -18,20 +19,22 @@ M.config = function()
 				client.server_capabilities.document_formatting = false
 				client.server_capabilities.document_range_formatting = false
 
-				vim.api.nvim_create_autocmd("CursorHold", {
-					buffer = 0,
-					callback = function()
-						local opts = {
-							focusable = false,
-							close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-							border = "rounded",
-							source = "always",
-							prefix = " ",
-							scope = "cursor",
-						}
-						vim.diagnostic.open_float(nil, opts)
-					end,
-				})
+				if globals.hover_diagnostics then
+					vim.api.nvim_create_autocmd("CursorHold", {
+						buffer = 0,
+						callback = function()
+							local opts = {
+								focusable = false,
+								close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+								border = "rounded",
+								source = "always",
+								prefix = " ",
+								scope = "cursor",
+							}
+							vim.diagnostic.open_float(nil, opts)
+						end,
+					})
+				end
 			end,
 			capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 			-- Lua vim global definition

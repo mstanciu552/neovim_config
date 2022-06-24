@@ -115,8 +115,10 @@ function M.config()
 	key("n", "<leader>ca", "<cmd>lua require'lspsaga.codeaction'.code_action()<CR>", opts)
 	key("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	key("n", "<leader>a", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
-	key("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	key("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+
+	key("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({float={border="rounded"}})<CR>', opts)
+	key("n", "]d", '<cmd>lua vim.diagnostic.goto_next({float={border="rounded"}})<CR>', opts)
+
 	key("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 	key("n", "<leader>wf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
