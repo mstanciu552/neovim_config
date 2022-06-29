@@ -3,7 +3,7 @@ local M = {}
 M.virtual_text = false
 M.bufferline = false
 M.which_key = false
-M.format_on_save = false
+M.format_on_save = true
 M.transparent = false
 M.theme = false
 M.underline = true
@@ -26,13 +26,12 @@ local themes = {
 	"doom-one", -- 7
 	"nvcode", -- 8
 	"catppuccin", -- 9
-	"github", -- 10
-  "gruvbox" -- 11
+	"github_dark", -- 10
+	"gruvbox", -- 11
+	"palenight", -- 12
 }
 
--- M.colorscheme = themes[math.random(1, #themes)]
--- M.colorscheme = themes[2]
-M.colorscheme = themes[1]
+M.colorscheme = themes[12]
 
 M.lsp_matlab = false
 
