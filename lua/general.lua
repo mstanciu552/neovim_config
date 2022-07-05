@@ -67,9 +67,10 @@ M.config = function()
 	vim.opt.autoindent = true
 	vim.o.wrap = true
 	vim.g.fileformats = "unix,dos"
-  vim.opt.list = true
+	vim.opt.list = true
+	vim.opt.listchars = { eol = "↲", trail = "✚", tab = "»·", extends = "◀", precedes = "▶" }
 
-	vim.o.guifont = "UbuntuMono Nerd Font:h24"
+	vim.o.guifont = "JetBrainsMono Nerd Font:h24"
 
 	vim.g.cursorhold_updatetime = "100"
 end

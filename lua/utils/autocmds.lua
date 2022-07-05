@@ -7,13 +7,13 @@ M.config = function()
     augroup END
   ]])
 
-  -- Rust start tools
-  vim.api.nvim_create_autocmd({"BufEnter"}, {
-    pattern = {"*.rs"},
-    callback = function ()
-      vim.cmd 'RustStartStandaloneServerForBuffer'
-    end
-  })
+	-- Rust start tools
+	-- vim.api.nvim_create_autocmd({"BufEnter"}, {
+	--   pattern = {"*.rs"},
+	--   callback = function ()
+	--     vim.cmd 'RustStartStandaloneServerForBuffer'
+	--   end
+	-- })
 end
 
 return M

@@ -16,7 +16,12 @@ M.config = function()
 					client.request("textDocument/formatting", vim.lsp.util.make_formatting_params({}), nil, bufnr)
 				end
 
-				if client.name == "tsserver" or client.name == "sumneko_lua" then
+				if
+					client.name == "tsserver"
+					or client.name == "sumneko_lua"
+					or client.name == "rust_analyzer"
+					or client.name == "rust_analyzer-standalone"
+				then
 					client.resolved_capabilities.document_formatting = false -- Weird that it works
 				end
 
