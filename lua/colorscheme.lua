@@ -9,16 +9,8 @@ local M = {
 }
 local globals = require("globals")
 
-M.menu_highlight = function()
-	for group, color in pairs(M.menu_colors) do
-		if color then
-			vim.highlight.create(group, { guifg = color }, false)
-		end
-	end
-end
 
 function M.config()
-	M.menu_highlight()
 
 	vim.cmd("hi SpellBad guifg=none guibg=none cterm=none ctermfg=none ctermbg=none")
 	vim.cmd("hi IncSearch guibg='#5e81ac' guifg='#abb2bf'")
@@ -26,11 +18,11 @@ function M.config()
 	if globals.colorscheme ~= "catppuccin" then
 		pcall(require, globals.colorscheme)
 	end
-  if globals.colorscheme == "github" then 
-	vim.cmd("colorscheme " .. globals.colorscheme .. "_dark")
-  else
-	vim.cmd("colorscheme " .. globals.colorscheme)
-end
+	if globals.colorscheme == "github" then
+		vim.cmd("colorscheme " .. globals.colorscheme .. "_dark")
+	else
+		vim.cmd("colorscheme " .. globals.colorscheme)
+	end
 
 	if globals.transparent then
 		vim.cmd("hi Normal guibg=None ctermbg=None")

@@ -70,7 +70,9 @@ M.config = function()
 	vim.opt.list = true
 	vim.opt.listchars = { eol = "↲", trail = "✚", tab = "»·", extends = "◀", precedes = "▶" }
 
-	vim.o.guifont = "JetBrainsMono Nerd Font:h24"
+	-- vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+	vim.o.guifont = "Iosevka Nerd Font:h10"
+	vim.o.autochdir = true
 
 	vim.g.cursorhold_updatetime = "100"
 end

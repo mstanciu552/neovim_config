@@ -1,7 +1,7 @@
 local M = {}
 
 M.virtual_text = false
-M.bufferline = false
+M.bufferline = true
 M.which_key = false
 M.format_on_save = true
 M.transparent = false

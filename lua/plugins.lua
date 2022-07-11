@@ -150,6 +150,14 @@ function M.config()
 		use("petertriho/nvim-scrollbar")
 		use({ "echasnovski/mini.nvim" })
 		use("m-demare/hlargs.nvim")
+		use({
+			"goolord/alpha-nvim",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function()
+				require("alpha").setup(require("alpha.themes.startify").config)
+			end,
+		})
+		use("fgheng/winbar.nvim")
 
 		use("rcarriga/nvim-notify")
 		use("Djancyp/cheat-sheet")

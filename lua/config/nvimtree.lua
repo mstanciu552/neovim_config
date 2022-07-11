@@ -2,7 +2,7 @@ local M = {}
 
 function M.config()
 	require("nvim-tree").setup({
-		disable_netrw = true,
+		disable_netrw = false,
 		hijack_netrw = true,
 		open_on_setup = true,
 		ignore_buffer_on_setup = false,
@@ -11,14 +11,14 @@ function M.config()
 		auto_reload_on_write = true,
 		open_on_tab = false,
 		hijack_cursor = false,
-		update_cwd = false,
+		update_cwd = true,
 		hijack_unnamed_buffer_when_opening = false,
 		hijack_directories = {
 			enable = true,
 			auto_open = true,
 		},
 		diagnostics = {
-			enable = false,
+			enable = true,
 			icons = {
 				hint = "",
 				info = "",
@@ -27,8 +27,8 @@ function M.config()
 			},
 		},
 		update_focused_file = {
-			enable = false,
-			update_cwd = false,
+			enable = true,
+			update_cwd = true,
 			ignore_list = {},
 		},
 		system_open = {
@@ -65,7 +65,7 @@ function M.config()
 		actions = {
 			change_dir = {
 				enable = true,
-				global = false,
+				global = true,
 			},
 			open_file = {
 				quit_on_open = true,

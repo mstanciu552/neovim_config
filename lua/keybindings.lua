@@ -39,7 +39,7 @@ function M.config()
 	key("n", "<leader>o", ":NvimTreeFind<CR>", { noremap = true, silent = true })
 
 	-- Formatting
-	key("n", "<leader>cf", ":lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = true })
+	key("n", "<leader>cf", ":lua vim.lsp.buf.format({async = true})<CR>", { noremap = true, silent = true })
 
 	-- Telescope
 	if globals.telescope_theme == "normal" then

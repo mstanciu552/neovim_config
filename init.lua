@@ -16,7 +16,6 @@ local config = {
 	"config.scrollbar",
 	"config.hlargs",
 	"config.mini",
-	-- "config.markdown",
 	"config.nvimtree",
 	"config.null-ls",
 	"config.lua_line",
@@ -30,6 +29,8 @@ local config = {
 	"config.rust-tools",
 	"config.lspsaga",
 	"config.tabnine",
+	"config.winbar",
+
 	"utils.autocmds",
 
 	"lsp",

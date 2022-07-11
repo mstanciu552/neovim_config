@@ -3,30 +3,23 @@ local globals = require("globals")
 
 M.config = function()
 	local lsp_installer = require("nvim-lsp-installer")
-	local lsp_format = require("lsp-format")
 
 	lsp_installer.on_server_ready(function(server)
-		-- if server.name == "tsserver" then
-		-- 	return
-		-- end
 		local opts = {
 			on_attach = function(client, bufnr)
-				if server.name ~= "sumneko_lua" then
-					lsp_format.on_attach(client)
-					client.request("textDocument/formatting", vim.lsp.util.make_formatting_params({}), nil, bufnr)
-				end
-
 				if
 					client.name == "tsserver"
-					or client.name == "sumneko_lua"
+					-- or client.name == "sumneko_lua"
 					or client.name == "rust_analyzer"
 					or client.name == "rust_analyzer-standalone"
+					or client.name == "gopls"
 				then
-					client.resolved_capabilities.document_formatting = false -- Weird that it works
+					-- client.resolved_capabilities.document_formatting = false -- Weird that it works
+					client.server_capabilities.document_formatting = false -- Weird that it works
 				end
 
-				client.server_capabilities.document_formatting = false
-				client.server_capabilities.document_range_formatting = false
+				client.server_capabilities.document_formatting = true
+				client.server_capabilities.document_range_formatting = true
 
 				if globals.hover_diagnostics then
 					vim.api.nvim_create_autocmd("CursorHold", {
