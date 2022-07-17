@@ -2,6 +2,7 @@ local M = {}
 
 function M.config()
 	require("nvim-tree").setup({
+		respect_buf_cwd = true,
 		disable_netrw = false,
 		hijack_netrw = true,
 		open_on_setup = true,

@@ -37,6 +37,7 @@ function M.config()
 			"nvim-telescope/telescope.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
 		})
+		use("ahmedkhalf/project.nvim")
 
 		use({
 			"nvim-treesitter/nvim-treesitter",

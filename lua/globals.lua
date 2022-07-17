@@ -14,7 +14,7 @@ local statusline_options = {
 	"neonline",
 	"spaceline",
 }
-M.statusline = statusline_options[1]
+M.statusline = statusline_options[3]
 
 local themes = {
 	"tokyonight", -- 1
@@ -31,7 +31,7 @@ local themes = {
 	"palenight", -- 12
 }
 
-M.colorscheme = themes[12]
+M.colorscheme = themes[10]
 
 M.lsp_matlab = false
 
@@ -63,13 +63,10 @@ M.toggle_virtual_text = function()
 		on_lines = function()
 			M.virtual_text = not M.virtual_text
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(
-					vim.lsp.diagnostic.on_publish_diagnostics,
-					{
-						underline = M.underline,
-						virtual_text = M.virtual_text,
-					}
-				)
+				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+					underline = M.underline,
+					virtual_text = M.virtual_text,
+				})
 		end,
 	})
 end

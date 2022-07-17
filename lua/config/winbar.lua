@@ -1,16 +1,16 @@
 local M = {}
 
 M.config = function()
-	require("winbar").setup({
+	local opts = {
 		enabled = true,
-		show_file_path = true,
+		show_file_path = false,
 		show_symbols = true,
 
-		colors = {
-			path = "", -- You can customize colors like #c946fd
-			file_name = "",
-			symbols = "",
-		},
+		-- colors = {
+		-- 	path = "", -- You can customize colors like #c946fd
+		-- 	file_name = "",
+		-- 	symbols = "",
+		-- },
 
 		icons = {
 			file_icon_default = "",
@@ -34,7 +34,9 @@ M.config = function()
 			"toggleterm",
 			"qf",
 		},
-	})
+	}
+
+	require("winbar").setup(opts)
 end
 
 return M

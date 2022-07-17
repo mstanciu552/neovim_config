@@ -24,10 +24,7 @@ M.config = function()
   set smarttab
   set formatoptions-=cro
 
-  sign define DiagnosticsSignError       text= ● texthl=DiagnosticError   linehl= numhl=
-  sign define DiagnosticsSignWarning     text= ● texthl=DiagnosticWarn    linehl= numhl=
-  sign define DiagnosticsSignInformation text= ● texthl=DiagnosticInfo    linehl= numhl=
-  sign define DiagnosticsSignHint        text= ● texthl=DiagnosticHint    linehl= numhl=
+
 
   augroup highlight_yank
     autocmd!
